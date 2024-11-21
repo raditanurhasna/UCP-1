@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pool Management</title>
+</head>
+<body>
+    <h1>Daftar Kolam Renang</h1>
+    <a href="/add">Tambah Kolam Renang</a>
+    <ul>
+        <% pools.forEach(pool => { %>
+            <li>
+                <strong><%= pool.name %></strong> - <%= pool.location %> 
+                (Rp. <%= pool.ticketPrice %>) 
+                <form action="/delete/<%= pool._id %>" method="POST" style="display:inline;">
+                    <button type="submit">Hapus</button>
+                </form>
+            </li>
+        <% }) %>
+    </ul>
+</body>
+</html>
